@@ -20,7 +20,120 @@ public class Fund {
     private String tax_classification;
     private String cnpj;
     private Description description;
-    private List<PerformanceVideo> performance_videos;
+    private Array performance_videos;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getInitial_date() {
+        return initial_date;
+    }
+
+    public Array getPerformance_audios() {
+        return performance_audios;
+    }
+
+    public String getDescription_seo() {
+        return description_seo;
+    }
+
+    public Operability getOperability() {
+        return operability;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public Fees getFees() {
+        return fees;
+    }
+
+    public boolean isIs_closed() {
+        return is_closed;
+    }
+
+    public String getSimple_name() {
+        return simple_name;
+    }
+
+    public String getTarget_fund() {
+        return target_fund;
+    }
+
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public Specification getSpecification() {
+        return specification;
+    }
+
+    public boolean isIs_active() {
+        return is_active;
+    }
+
+    public String getTax_classification() {
+        return tax_classification;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public Description getDescription() {
+        return description;
+    }
+
+    public Array getPerformance_videos() {
+        return performance_videos;
+    }
+
+    public String getQuota_date() {
+        return quota_date;
+    }
+
+    public Benchmark getBenchmark() {
+        return benchmark;
+    }
+
+    public boolean isOrama_standard() {
+        return orama_standard;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public String getVolatility_12m() {
+        return volatility_12m;
+    }
+
+    public StrategyVideo getStrategy_video() {
+        return strategy_video;
+    }
+
+    public Profitabilities getProfitabilities() {
+        return profitabilities;
+    }
+
+    public String getClosed_to_capture_explanation() {
+        return closed_to_capture_explanation;
+    }
+
+    public String getNet_patrimony_12m() {
+        return net_patrimony_12m;
+    }
+
+    public boolean isIs_closed_to_capture() {
+        return is_closed_to_capture;
+    }
+
+    public FundManager getFund_manager() {
+        return fund_manager;
+    }
+
     private String quota_date;
     private Benchmark benchmark;
     private boolean orama_standard;
