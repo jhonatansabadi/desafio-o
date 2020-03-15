@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Desafio O</string>
+    <string name="base_url">https://s3.amazonaws.com/orama-media/json/fund_detail_full.json</string>
 </resources>
