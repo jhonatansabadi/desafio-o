@@ -1,16 +1,11 @@
 package jhonatan.sabadi.desafioo.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import jhonatan.sabadi.desafioo.R;
-import jhonatan.sabadi.desafioo.model.Fund;
-import jhonatan.sabadi.desafioo.ui.viewmodel.FundViewModel;
-
 import android.os.Bundle;
 
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+import jhonatan.sabadi.desafioo.R;
+import jhonatan.sabadi.desafioo.ui.viewmodel.FundViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
