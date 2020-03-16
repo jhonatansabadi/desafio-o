@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 
 public interface FundService {
 
-    @GET("/")
+    @GET("/orama-media/json/fund_detail_full.json")
     Call<List<Fund>> getFunds(@Query("serializ er") String source);
 
 }

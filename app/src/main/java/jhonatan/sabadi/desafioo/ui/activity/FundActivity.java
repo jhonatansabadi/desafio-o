@@ -1,8 +1,11 @@
 package jhonatan.sabadi.desafioo.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 
+import java.io.Serializable;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,20 +17,28 @@ import jhonatan.sabadi.desafioo.interfaces.OnRecyclerClickListener;
 import jhonatan.sabadi.desafioo.model.Fund;
 import jhonatan.sabadi.desafioo.ui.adapter.FundAdapter;
 import jhonatan.sabadi.desafioo.ui.viewmodel.FundViewModel;
+import jhonatan.sabadi.desafioo.ui.viewmodelfactory.FundViewModelFactory;
 
-public class MainActivity extends AppCompatActivity implements OnRecyclerClickListener {
+public class FundActivity extends AppCompatActivity implements OnRecyclerClickListener {
 
-    private FundViewModel fundViewModel = ViewModelProviders.of(this).get(FundViewModel.class);
+    private FundViewModel fundViewModel;
     private FundAdapter fundAdapter;
     private RecyclerView fundRecyclerView;
+    private FundViewModelFactory fundViewModelFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_fund);
 
+        loadViewModel();
         loadFunds();
 
+    }
+
+    private void loadViewModel() {
+        fundViewModelFactory = new FundViewModelFactory(getApplication());
+        fundViewModel = ViewModelProviders.of(this, fundViewModelFactory).get(FundViewModel.class);
     }
 
     private void initRecyclerView(List<Fund> funds) {
@@ -48,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements OnRecyclerClickLi
 
     @Override
     public void setOnRecyclerClick(View view, int position) {
-
+        Fund fund = fundAdapter.getFundAtPosition(position);
+        Intent intent = new Intent(this, DetailsFundActivity.class);
+        intent.putExtra("fund", (Parcelable) fund);
+        startActivity(intent);
     }
 }

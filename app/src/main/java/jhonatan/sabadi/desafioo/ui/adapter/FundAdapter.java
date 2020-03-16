@@ -3,6 +3,7 @@ package jhonatan.sabadi.desafioo.ui.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +35,8 @@ public class FundAdapter extends RecyclerView.Adapter<FundAdapter.FundViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull FundViewHolder holder, int position) {
-        holder.itemView.setOnClickListener(view ->
-                onRecyclerClickListener.setOnRecyclerClick(view, position)
-        );
+        Fund fund = funds.get(position);
+        holder.bind(fund);
     }
 
     @Override
@@ -44,12 +44,28 @@ public class FundAdapter extends RecyclerView.Adapter<FundAdapter.FundViewHolder
         return funds.size();
     }
 
+    public Fund getFundAtPosition(int position) {
+        return funds.get(position);
+    }
+
     class FundViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView full_name;
 
         public FundViewHolder(@NonNull View itemView) {
             super(itemView);
+            full_name = itemView.findViewById(R.id.full_name_fund);
         }
 
-    }
+        public void bind(Fund fund) {
+            setOnRecyclerClick();
+            full_name.setText(fund.getFull_name());
+        }
 
+        private void setOnRecyclerClick() {
+            itemView.setOnClickListener(view ->
+                    onRecyclerClickListener.setOnRecyclerClick(view, getAdapterPosition())
+            );
+        }
+    }
 }

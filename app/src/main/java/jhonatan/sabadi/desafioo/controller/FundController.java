@@ -7,7 +7,7 @@ import java.util.List;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import jhonatan.sabadi.desafioo.model.Fund;
-import jhonatan.sabadi.desafioo.retrofit.RetrofitService;
+import jhonatan.sabadi.desafioo.service.retrofit.RetrofitService;
 import jhonatan.sabadi.desafioo.service.FundService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +37,7 @@ public class FundController {
             @Override
             public void onFailure(Call<List<Fund>> call, Throwable t) {
                 mutableLiveData.setValue(null);
+                t.printStackTrace();
             }
         });
         return mutableLiveData;
