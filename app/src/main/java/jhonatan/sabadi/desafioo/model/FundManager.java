@@ -33,4 +33,16 @@ public class FundManager  implements Serializable {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "FundManager{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", full_name='" + full_name + '\'' +
+                ", logo='" + logo + '\'' +
+                ", slug='" + slug + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

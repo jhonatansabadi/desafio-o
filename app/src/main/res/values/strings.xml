@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Desafio O</string>
     <string name="base_url">https://s3.amazonaws.com/</string>
+    <string name="base_url_logo">https://s3.amazonaws.com/orama-media/</string>
 </resources>

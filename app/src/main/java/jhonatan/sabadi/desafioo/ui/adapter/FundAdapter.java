@@ -3,10 +3,10 @@ package jhonatan.sabadi.desafioo.ui.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.bumptech.glide.Glide;
 
 import androidx.annotation.NonNull;
 import androidx.paging.PagedListAdapter;
@@ -57,16 +57,29 @@ public class FundAdapter extends PagedListAdapter<Fund, FundAdapter.FundViewHold
 
     class FundViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView full_name;
+        private TextView simple_name;
+        private TextView description_seo_fund;
+        private TextView initial_date_fund;
+        private ImageView logo;
 
         public FundViewHolder(@NonNull View itemView) {
             super(itemView);
-            full_name = itemView.findViewById(R.id.full_name_fund);
+            simple_name = itemView.findViewById(R.id.simplel_name_fund);
+            description_seo_fund = itemView.findViewById(R.id.description_seo_fund);
+            initial_date_fund = itemView.findViewById(R.id.initial_date_fund);
+            logo = itemView.findViewById(R.id.logo_small_fund);
         }
 
         public void bind(Fund fund) {
             setOnRecyclerClick();
-            full_name.setText(fund.getFull_name());
+            simple_name.setText(fund.getSimple_name());
+            description_seo_fund.setText(fund.getDescription_seo());
+            initial_date_fund.setText(fund.getInitial_date());
+
+            String logoUrl = itemView.getContext().getString(R.string.base_url_logo) + fund.getFund_manager().getLogo();
+            Glide.with(itemView.getContext())
+                    .load(logoUrl)
+                    .into(logo);
         }
 
         private void setOnRecyclerClick() {

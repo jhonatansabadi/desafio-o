@@ -1,19 +1,14 @@
 package jhonatan.sabadi.desafioo.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 import java.util.List;
 
-import androidx.room.Entity;
+import androidx.annotation.NonNull;
 
 
 public class Fund implements Serializable {
     private int id;
     private String initial_date;
-
-
     private List<PerformanceAudio> performance_audios;
     private String description_seo;
     private Operability operability;
@@ -109,7 +104,6 @@ public class Fund implements Serializable {
         return description;
     }
 
-
     public String getQuota_date() {
         return quota_date;
     }
@@ -154,4 +148,37 @@ public class Fund implements Serializable {
         return fund_manager;
     }
 
+    @Override
+    public String toString() {
+        return "Fund{" +
+                "id=" + id +
+                ", initial_date='" + initial_date + '\'' +
+                ", performance_audios=" + performance_audios +
+                ", description_seo='" + description_seo + '\'' +
+                ", operability=" + operability +
+                ", full_name='" + full_name + '\'' +
+                ", fees=" + fees +
+                ", is_closed=" + is_closed +
+                ", simple_name='" + simple_name + '\'' +
+                ", target_fund='" + target_fund + '\'' +
+                ", documents=" + documents +
+                ", specification=" + specification +
+                ", is_active=" + is_active +
+                ", tax_classification='" + tax_classification + '\'' +
+                ", cnpj='" + cnpj + '\'' +
+                ", description=" + description +
+                ", quota_date='" + quota_date + '\'' +
+                ", benchmark=" + benchmark +
+                ", orama_standard=" + orama_standard +
+                ", slug='" + slug + '\'' +
+                ", volatility_12m='" + volatility_12m + '\'' +
+                ", strategy_video=" + strategy_video +
+                ", profitabilities=" + profitabilities +
+                ", closed_to_capture_explanation='" + closed_to_capture_explanation + '\'' +
+                ", net_patrimony_12m='" + net_patrimony_12m + '\'' +
+                ", is_closed_to_capture=" + is_closed_to_capture +
+                ", fund_manager=" + fund_manager +
+                ", performance_videos=" + performance_videos +
+                '}';
+    }
 }
