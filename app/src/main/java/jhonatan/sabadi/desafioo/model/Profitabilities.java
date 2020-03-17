@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class Profitabilities {
+import java.io.Serializable;
+
+public class Profitabilities implements Serializable {
     private String m60;
     private String m48;
     private String m24;

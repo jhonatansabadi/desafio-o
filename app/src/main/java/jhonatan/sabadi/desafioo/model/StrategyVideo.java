@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class StrategyVideo {
+import java.io.Serializable;
+
+public class StrategyVideo implements Serializable {
     private String description;
     private String title;
     private String url;

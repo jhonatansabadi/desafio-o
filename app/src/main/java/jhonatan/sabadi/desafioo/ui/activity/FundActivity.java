@@ -81,7 +81,7 @@ public class FundActivity extends AppCompatActivity implements OnRecyclerClickLi
     public void setOnRecyclerClick(View view, int position) {
         Fund fund = fundAdapter.getFundAtPosition(position);
         Intent intent = new Intent(this, DetailsFundActivity.class);
-        intent.putExtra("fund", (Parcelable) fund);
+        intent.putExtra("fund", fund);
         startActivity(intent);
     }
 }

@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class FundManager {
+import java.io.Serializable;
+
+public class FundManager  implements Serializable {
     private int id;
     private String description;
     private String full_name;

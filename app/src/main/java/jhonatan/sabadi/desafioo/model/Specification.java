@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class Specification {
+import java.io.Serializable;
+
+public class Specification implements Serializable {
     private FundMacroStrategy fund_suitability_profile;
     private FundMacroStrategy fund_risk_profile;
     private boolean is_qualified;

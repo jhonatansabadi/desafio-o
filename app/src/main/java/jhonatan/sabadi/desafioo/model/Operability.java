@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class Operability {
+import java.io.Serializable;
+
+public class Operability  implements Serializable {
 
     private boolean has_operations_on_thursdays;
     private String retrieval_liquidation_days_type;

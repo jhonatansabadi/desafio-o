@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class Fees {
+import java.io.Serializable;
+
+public class Fees implements Serializable {
     private String maximum_administration_fee;
     private String anticipated_retrieval_fee_value;
     private String administration_fee;

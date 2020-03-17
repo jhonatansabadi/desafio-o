@@ -11,8 +11,8 @@ public class FundLiveDataPaged {
 
     private static PagedList.Config getPagedConfig() {
         return new PagedList.Config.Builder()
-                .setInitialLoadSizeHint(10)
-                .setPageSize(20)
+                .setInitialLoadSizeHint(5)
+                .setPageSize(10)
                 .setPrefetchDistance(10)
                 .build();
     }

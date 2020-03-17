@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class Document {
+import java.io.Serializable;
+
+public class Document implements Serializable {
     private int position;
     private String document_type;
     private String name;

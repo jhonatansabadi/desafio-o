@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class PerformanceAudio {
+import java.io.Serializable;
+
+public class PerformanceAudio  implements Serializable {
     private String reference_date;
     private String soundcloud_id;
     private String permalink_url;

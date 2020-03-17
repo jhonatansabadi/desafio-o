@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class Description {
+import java.io.Serializable;
+
+public class Description implements Serializable {
     private String objective;
 
     public String getObjective() {

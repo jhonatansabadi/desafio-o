@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class FundMacroStrategy {
+import java.io.Serializable;
+
+public class FundMacroStrategy implements Serializable {
     private int score_range_order;
     private String name;
 

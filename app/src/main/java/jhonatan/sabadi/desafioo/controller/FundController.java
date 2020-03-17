@@ -1,7 +1,6 @@
 package jhonatan.sabadi.desafioo.controller;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.List;
 
@@ -28,7 +27,6 @@ public class FundController {
         funds.enqueue(new Callback<List<Fund>>() {
             @Override
             public void onResponse(Call<List<Fund>> call, Response<List<Fund>> response) {
-                Log.d("FundController", "data");
                 if (response.body() != null) {
                     mutableLiveData.setValue(response.body());
                 }
@@ -41,5 +39,4 @@ public class FundController {
         });
         return mutableLiveData;
     }
-
 }

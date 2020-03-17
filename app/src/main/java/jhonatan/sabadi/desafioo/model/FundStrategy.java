@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class FundStrategy {
+import java.io.Serializable;
+
+public class FundStrategy  implements Serializable {
     private int id;
     private String explanation;
     private String name;

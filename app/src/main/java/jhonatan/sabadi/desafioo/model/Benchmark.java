@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class Benchmark {
+import java.io.Serializable;
+
+public class Benchmark implements Serializable {
     private int id;
     private String name;
 

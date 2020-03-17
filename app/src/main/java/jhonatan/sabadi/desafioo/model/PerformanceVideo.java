@@ -1,6 +1,8 @@
 package jhonatan.sabadi.desafioo.model;
 
-public class PerformanceVideo {
+import java.io.Serializable;
+
+public class PerformanceVideo implements Serializable {
     private String description;
     private String title;
     private String url;
