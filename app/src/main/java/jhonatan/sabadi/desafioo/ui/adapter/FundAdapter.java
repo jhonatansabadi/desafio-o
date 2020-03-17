@@ -60,6 +60,8 @@ public class FundAdapter extends PagedListAdapter<Fund, FundAdapter.FundViewHold
         private TextView simple_name;
         private TextView description_seo_fund;
         private TextView initial_date_fund;
+        private TextView fund_suitability_profile;
+        private TextView fund_type;
         private ImageView logo;
 
         public FundViewHolder(@NonNull View itemView) {
@@ -67,6 +69,9 @@ public class FundAdapter extends PagedListAdapter<Fund, FundAdapter.FundViewHold
             simple_name = itemView.findViewById(R.id.simplel_name_fund);
             description_seo_fund = itemView.findViewById(R.id.description_seo_fund);
             initial_date_fund = itemView.findViewById(R.id.initial_date_fund);
+            fund_suitability_profile = itemView.findViewById(R.id.fund_suitability_profile_name);
+            fund_type = itemView.findViewById(R.id.fund_type);
+
             logo = itemView.findViewById(R.id.logo_small_fund);
         }
 
@@ -75,6 +80,8 @@ public class FundAdapter extends PagedListAdapter<Fund, FundAdapter.FundViewHold
             simple_name.setText(fund.getSimple_name());
             description_seo_fund.setText(fund.getDescription_seo());
             initial_date_fund.setText(fund.getInitial_date());
+            fund_suitability_profile.setText(fund.getSpecification().getFund_suitability_profile().getName());
+            fund_type.setText(fund.getSpecification().getFund_type());
 
             String logoUrl = itemView.getContext().getString(R.string.base_url_logo) + fund.getFund_manager().getLogo();
             Glide.with(itemView.getContext())
