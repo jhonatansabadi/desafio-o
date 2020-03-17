@@ -7,6 +7,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.paging.PagedList;
 import jhonatan.sabadi.desafioo.controller.FundController;
 import jhonatan.sabadi.desafioo.model.Fund;
 
@@ -19,7 +20,7 @@ public class FundViewModel extends AndroidViewModel {
         this.fundController = new FundController(application);
     }
 
-    public LiveData<List<Fund>> getFunds() {
+    public LiveData<PagedList<Fund>> getFunds() {
         return fundController.getFunds();
     }
 

@@ -9,18 +9,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.paging.PagedListAdapter;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import jhonatan.sabadi.desafioo.R;
 import jhonatan.sabadi.desafioo.interfaces.OnRecyclerClickListener;
 import jhonatan.sabadi.desafioo.model.Fund;
 
-public class FundAdapter extends RecyclerView.Adapter<FundAdapter.FundViewHolder> {
-
-    private List<Fund> funds = new ArrayList<>();
+public class FundAdapter extends PagedListAdapter<Fund, FundAdapter.FundViewHolder> {
     private OnRecyclerClickListener onRecyclerClickListener;
+    private static DiffUtil.ItemCallback DIFF_UTIL = new DiffUtil.ItemCallback<Fund>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Fund oldItem, @NonNull Fund newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
 
-    public FundAdapter(List<Fund> funds, OnRecyclerClickListener onRecyclerClickListener) {
-        this.funds = funds;
+        @Override
+        public boolean areContentsTheSame(@NonNull Fund oldItem, @NonNull Fund newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+    };
+
+    public FundAdapter(OnRecyclerClickListener onRecyclerClickListener) {
+        super(DIFF_UTIL);
         this.onRecyclerClickListener = onRecyclerClickListener;
     }
 
@@ -35,17 +46,17 @@ public class FundAdapter extends RecyclerView.Adapter<FundAdapter.FundViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull FundViewHolder holder, int position) {
-        Fund fund = funds.get(position);
+        Fund fund = getItem(position);
         holder.bind(fund);
     }
 
     @Override
     public int getItemCount() {
-        return funds.size();
+        return getItemCount();
     }
 
     public Fund getFundAtPosition(int position) {
-        return funds.get(position);
+        return getItem(position);
     }
 
     class FundViewHolder extends RecyclerView.ViewHolder {

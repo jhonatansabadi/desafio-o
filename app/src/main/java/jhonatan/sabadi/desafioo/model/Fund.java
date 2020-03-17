@@ -6,6 +6,9 @@ import android.os.Parcelable;
 import java.io.Serializable;
 import java.util.List;
 
+import androidx.room.Entity;
+
+
 public class Fund implements Serializable {
     private int id;
     private String initial_date;
