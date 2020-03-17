@@ -50,10 +50,6 @@ public class FundAdapter extends PagedListAdapter<Fund, FundAdapter.FundViewHold
         holder.bind(fund);
     }
 
-    @Override
-    public int getItemCount() {
-        return getItemCount();
-    }
 
     public Fund getFundAtPosition(int position) {
         return getItem(position);

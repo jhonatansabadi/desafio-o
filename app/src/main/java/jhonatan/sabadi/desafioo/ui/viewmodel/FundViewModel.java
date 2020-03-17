@@ -20,7 +20,7 @@ public class FundViewModel extends AndroidViewModel {
         this.fundController = new FundController(application);
     }
 
-    public LiveData<PagedList<Fund>> getFunds() {
+    public LiveData<List<Fund>> getFunds() {
         return fundController.getFunds();
     }
 

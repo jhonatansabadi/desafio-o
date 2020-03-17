@@ -61,14 +61,16 @@ public class FundActivity extends AppCompatActivity implements OnRecyclerClickLi
             if (funds != null) {
                 initRecyclerView();
                 PagedList.Config config = new PagedList.Config.Builder()
+                        .setInitialLoadSizeHint(10)
                         .setPageSize(20)
                         .build();
                 FundDataSourceFactory fundDataSourceFactory = new FundDataSourceFactory(funds);
                 LiveData fundLiveData = new LivePagedListBuilder(fundDataSourceFactory, config).build();
+
                 fundLiveData.observe(lifecycleOwner, fundsPaged -> {
                     fundAdapter = new FundAdapter(this);
                     fundAdapter.submitList((PagedList<Fund>) fundsPaged);
-
+                    fundRecyclerView.setAdapter(fundAdapter);
                 });
             }
         });

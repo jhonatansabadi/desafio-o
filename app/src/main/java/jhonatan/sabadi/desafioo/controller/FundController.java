@@ -55,12 +55,12 @@ public class FundController {
         }
     };
 
-    public LiveData<PagedList<Fund>> getFunds() {
-        final MutableLiveData mutableLiveData = new MutableLiveData<PagedList<Fund>>();
-        Call<PagedList<Fund>> funds = retrofitService.getFunds("fund_detail_full");
-        funds.enqueue(new Callback<PagedList<Fund>>() {
+    public LiveData<List<Fund>> getFunds() {
+        final MutableLiveData mutableLiveData = new MutableLiveData<List<Fund>>();
+        Call<List<Fund>> funds = retrofitService.getFunds("fund_detail_full");
+        funds.enqueue(new Callback<List<Fund>>() {
             @Override
-            public void onResponse(Call<PagedList<Fund>> call, Response<PagedList<Fund>> response) {
+            public void onResponse(Call<List<Fund>> call, Response<List<Fund>> response) {
                 if (response.body() != null) {
 //                    mutableLiveData.setValue(fundLiveData);
                     mutableLiveData.setValue(response.body());
@@ -68,7 +68,7 @@ public class FundController {
             }
 
             @Override
-            public void onFailure(Call<PagedList<Fund>> call, Throwable t) {
+            public void onFailure(Call<List<Fund>> call, Throwable t) {
                 t.printStackTrace();
             }
         });
