@@ -1,7 +1,5 @@
 package jhonatan.sabadi.desafioo.database;
 
-import androidx.room.Database;
-import androidx.room.RoomDatabase;
 
 import jhonatan.sabadi.desafioo.model.Fund;
 

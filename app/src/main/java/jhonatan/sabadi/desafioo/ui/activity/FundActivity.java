@@ -5,22 +5,20 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 
-import java.io.Serializable;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
-import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import jhonatan.sabadi.desafioo.R;
 import jhonatan.sabadi.desafioo.interfaces.OnRecyclerClickListener;
 import jhonatan.sabadi.desafioo.model.Fund;
-import jhonatan.sabadi.desafioo.service.FundDataSourceFactory;
+import jhonatan.sabadi.desafioo.service.datasource.FundLiveDataPaged;
 import jhonatan.sabadi.desafioo.ui.adapter.FundAdapter;
 import jhonatan.sabadi.desafioo.ui.viewmodel.FundViewModel;
 import jhonatan.sabadi.desafioo.ui.viewmodelfactory.FundViewModelFactory;
@@ -51,30 +49,33 @@ public class FundActivity extends AppCompatActivity implements OnRecyclerClickLi
         fundRecyclerView = findViewById(R.id.fundRecyclerView);
         fundRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         fundRecyclerView.setHasFixedSize(true);
-//        fundAdapter = new FundAdapter(funds, this);
-//        fundRecyclerView.setAdapter(fundAdapter);
     }
 
     private void loadFunds() {
         LifecycleOwner lifecycleOwner = this;
-        fundViewModel.getFunds().observe(lifecycleOwner, funds -> {
+        fundViewModel.getFunds().observe(lifecycleOwner, fundsObserver);
+    }
+
+    private Observer fundsObserver = new Observer<List<Fund>>() {
+        @Override
+        public void onChanged(List<Fund> funds) {
             if (funds != null) {
                 initRecyclerView();
-                PagedList.Config config = new PagedList.Config.Builder()
-                        .setInitialLoadSizeHint(10)
-                        .setPageSize(20)
-                        .build();
-                FundDataSourceFactory fundDataSourceFactory = new FundDataSourceFactory(funds);
-                LiveData fundLiveData = new LivePagedListBuilder(fundDataSourceFactory, config).build();
-
-                fundLiveData.observe(lifecycleOwner, fundsPaged -> {
-                    fundAdapter = new FundAdapter(this);
-                    fundAdapter.submitList((PagedList<Fund>) fundsPaged);
-                    fundRecyclerView.setAdapter(fundAdapter);
-                });
+                LiveData<PagedList<Fund>> fundLiveData = FundLiveDataPaged.getInstanceLiveData(funds);
+                fundLiveData.observe(FundActivity.this, pagedListObserver);
             }
-        });
-    }
+        }
+    };
+
+
+    private Observer pagedListObserver = new Observer<PagedList<Fund>>() {
+        @Override
+        public void onChanged(PagedList<Fund> fundsPaged) {
+            fundAdapter = new FundAdapter(FundActivity.this);
+            fundAdapter.submitList(fundsPaged);
+            fundRecyclerView.setAdapter(fundAdapter);
+        }
+    };
 
     @Override
     public void setOnRecyclerClick(View view, int position) {
