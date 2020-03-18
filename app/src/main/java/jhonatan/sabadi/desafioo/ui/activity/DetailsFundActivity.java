@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.transition.MaterialContainerTransform;
 import com.google.android.material.transition.MaterialContainerTransformSharedElementCallback;
 
@@ -38,6 +40,17 @@ public class DetailsFundActivity extends AppCompatActivity {
         loadComponents();
         loadFundFromIntent();
 
+        loadToolbar();
+
+    }
+
+    private void loadToolbar() {
+        MaterialToolbar toolbar = findViewById(R.id.anim_toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("");
     }
 
     private void loadComponents() {
