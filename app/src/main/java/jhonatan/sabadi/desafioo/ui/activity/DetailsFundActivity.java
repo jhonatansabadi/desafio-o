@@ -53,6 +53,12 @@ public class DetailsFundActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("");
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     private void loadComponents() {
         image_view_details = findViewById(R.id.image_view_details);
         strategy_video_thumbnail_details = findViewById(R.id.strategy_video_thumbnail_details);
