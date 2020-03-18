@@ -4,15 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.transition.MaterialContainerTransform;
-import com.google.android.material.transition.MaterialContainerTransformSharedElementCallback;
 
 import androidx.appcompat.app.AppCompatActivity;
 import jhonatan.sabadi.desafioo.R;

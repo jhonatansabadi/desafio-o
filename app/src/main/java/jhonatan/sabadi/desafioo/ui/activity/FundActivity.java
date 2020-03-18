@@ -2,16 +2,32 @@ package jhonatan.sabadi.desafioo.ui.activity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.transition.MaterialContainerTransformSharedElementCallback;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
@@ -43,7 +59,6 @@ public class FundActivity extends AppCompatActivity implements OnRecyclerClickLi
         initProgressBar();
         loadViewModel();
         loadFunds();
-
     }
 
 
@@ -105,4 +120,5 @@ public class FundActivity extends AppCompatActivity implements OnRecyclerClickLi
         intent.putExtra("fund", fund);
         startActivity(intent);
     }
+
 }

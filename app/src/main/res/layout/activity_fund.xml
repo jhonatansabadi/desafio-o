@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.FundActivity"
-    android:background="#f1f1f1">
+    tools:context=".ui.activity.FundActivity">
 
     <ProgressBar
         android:id="@+id/progressBarFund"
@@ -22,11 +21,11 @@
         android:id="@+id/fundRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/recycler_view_fund" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
