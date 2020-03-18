@@ -10,6 +10,7 @@
     android:layout_marginEnd="16dp"
     android:layout_marginStart="16dp"
     android:elevation="3dp"
+    android:id="@+id/card_view_fund"
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="8dp">
 

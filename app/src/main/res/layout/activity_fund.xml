@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.FundActivity">
+    tools:context=".ui.activity.FundActivity"
+    android:background="#f1f1f1">
 
     <ProgressBar
         android:id="@+id/progressBarFund"

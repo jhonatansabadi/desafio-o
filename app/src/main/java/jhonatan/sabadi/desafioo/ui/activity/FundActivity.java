@@ -1,10 +1,14 @@
 package jhonatan.sabadi.desafioo.ui.activity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.view.Window;
 import android.widget.ProgressBar;
+
+import com.google.android.material.transition.MaterialContainerTransformSharedElementCallback;
 
 import java.util.List;
 
@@ -36,12 +40,12 @@ public class FundActivity extends AppCompatActivity implements OnRecyclerClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fund);
-
         initProgressBar();
         loadViewModel();
         loadFunds();
 
     }
+
 
     private void initProgressBar() {
         progressBar = findViewById(R.id.progressBarFund);
