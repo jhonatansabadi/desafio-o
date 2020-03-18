@@ -29,7 +29,7 @@ public class FundDataSource extends ItemKeyedDataSource<Integer, Fund> {
 
     @Override
     public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Fund> callback) {
-        List<Fund> fundLimited = getFunds(params.requestedLoadSize, params.requestedLoadSize + 10);
+        List<Fund> fundLimited = getFunds(params.requestedLoadSize, params.requestedLoadSize + 5);
         callback.onResult(fundLimited);
     }
 

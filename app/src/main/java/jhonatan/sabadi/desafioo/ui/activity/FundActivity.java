@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import java.util.List;
 
@@ -29,15 +30,30 @@ public class FundActivity extends AppCompatActivity implements OnRecyclerClickLi
     private FundAdapter fundAdapter;
     private RecyclerView fundRecyclerView;
     private FundViewModelFactory fundViewModelFactory;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fund);
 
+        initProgressBar();
         loadViewModel();
         loadFunds();
 
+    }
+
+    private void initProgressBar() {
+        progressBar = findViewById(R.id.progressBarFund);
+        showProgressBar();
+    }
+
+    private void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
     }
 
     private void loadViewModel() {
@@ -74,6 +90,7 @@ public class FundActivity extends AppCompatActivity implements OnRecyclerClickLi
             fundAdapter = new FundAdapter(FundActivity.this);
             fundAdapter.submitList(fundsPaged);
             fundRecyclerView.setAdapter(fundAdapter);
+            hideProgressBar();
         }
     };
 
